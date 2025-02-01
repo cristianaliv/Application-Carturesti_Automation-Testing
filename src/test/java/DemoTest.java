@@ -24,6 +24,7 @@ public class DemoTest {
         String url = driver.getCurrentUrl();
         assertTrue(url.contains("carturesti"));
 
+
     }
 
 }
