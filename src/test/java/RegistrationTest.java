@@ -26,7 +26,7 @@ public class RegistrationTest {
 
 
     @Test
-    @DisplayName("Validate create account fields test")
+    @DisplayName("Validate create account fields test ")
     public void validateCreateAccountFields(){
 
         registrationPage.clickLoginButton();

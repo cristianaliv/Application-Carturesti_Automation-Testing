@@ -15,6 +15,7 @@ public class RegistrationPage {
     SeleniumActions actions = new SeleniumActions(manager);
 
 
+
     private final static By ACCEPT_COOKIES_BUTTON = By.xpath("//a[@aria-label = 'allow cookies']");
     private final static By LOGIN_BUTTON = By.xpath("(//button[@role='menuitem' and @data-target='#modalLogin'])[2]");
     private final static By POPUP_LOGIN = By.xpath("(//div[@class ='modal-content'])[1]");
