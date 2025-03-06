@@ -1,6 +1,7 @@
 package org.automation.framework;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,6 +46,10 @@ public class SeleniumActions {
 
     public void sendKeys(By locator, String text) {
         browserManager.getDriver().findElement(locator).sendKeys(text);
+    }
+
+    public void sendEnter(By locator) {
+        browserManager.getDriver().findElement(locator).sendKeys(Keys.ENTER);
     }
 
     public boolean isElementDisplayed(By locator) {
