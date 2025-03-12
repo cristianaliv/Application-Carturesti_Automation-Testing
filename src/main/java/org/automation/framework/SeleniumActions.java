@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -52,8 +53,22 @@ public class SeleniumActions {
         browserManager.getDriver().findElement(locator).sendKeys(Keys.ENTER);
     }
 
+    public boolean isElementEnabled(By locator) {
+        return browserManager.getDriver().findElement(locator).isEnabled();
+    }
+
     public boolean isElementDisplayed(By locator) {
         return browserManager.getDriver().findElement(locator).isDisplayed();
     }
 
+
+    public String getAttribute(By locator, String attributeName) {
+        return browserManager.getDriver().findElement(locator).getAttribute(attributeName);
+    }
+
+    public void hoverElement(By locator, WebDriver driver) {
+        Actions actions = new Actions(driver);
+        WebElement element = driver.findElement(locator);
+        actions.moveToElement(element).build().perform();
+    }
 }
