@@ -71,4 +71,12 @@ public class SeleniumActions {
     }
 
 
+    public void waitFluentElementVisible(By locator, int timeOut) {
+        Wait<WebDriver> wait = new FluentWait<>(browserManager.getDriver())
+                .withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofMillis(300))
+                .ignoring(ElementNotInteractableException.class);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
 }
