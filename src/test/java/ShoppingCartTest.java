@@ -10,6 +10,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+
 public class ShoppingCartTest {
 
 
@@ -42,7 +44,7 @@ public class ShoppingCartTest {
     public void addProductToCart(){
 
         log.info("Verify if user can successfully add a product to the cart");
-        searchPage.searchProduct("Cat timp infloresc lamaii");
+        searchPage.searchProductUsingEnterKey("Cat timp infloresc lamaii");
         List<WebElement> results = searchPage.getSearchResults();
         assertNotNull(results, "List of products is null");
         assertTrue(results.get(0).getText().contains("Cat timp infloresc lamaii"));

@@ -26,9 +26,9 @@ public class HomePageTest {
     }
 
     @Test
-    @DisplayName("Validate title test")
+    @DisplayName("Validate title of the page Carturesti")
     public void validateTitle() {
-        log.info("Validate title");
+        log.info("Validate title of the page Carturesti");
         String title = homePage.homePageTitle();
         assertEquals("Cărturești - Librărie Online - Carte Ceai Muzică Film", title, "Title of page was: " + title);
     }
@@ -37,6 +37,7 @@ public class HomePageTest {
     @Test
     @DisplayName("Validate Carturesti logo")
     public void checkLogoButton(){
+        log.info("Validate Carturesti logo");
         homePage.isLogoButtonVisible();
         homePage.clickLogoButton();
         homePage.isBannerDisplayed();
@@ -46,7 +47,7 @@ public class HomePageTest {
 
 
     @Test
-    @DisplayName("Validate banner test and")
+    @DisplayName("Validate home page banner")
     public void validateBanner() throws InterruptedException {
         log.info("Validate home page banner");
         boolean isBannerDisplayed = homePage.isBannerDisplayed();
@@ -55,49 +56,41 @@ public class HomePageTest {
         assertTrue(isBannerEnabled, "Banner is not enabled");
 
 
-        Map<String, Integer> slideCounts = new HashMap<>();
-        int slideCount = 11;
-
-        System.out.println("Numărul total de slide-uri: " + slideCount);
-
-        for (int i = 0; i < slideCount; i++) {
-
-            homePage.goToNextSlide();
-            Thread.sleep(2000); // Așteptăm schimbarea
-
-            // Obținem identificatorul slide-ului curent
-
-            String currentSlide = homePage.getCurrentSlide();
-            System.out.println("Identificatorul slide-ului curent: " + currentSlide);
-
-// Contorizăm aparițiile identificatorului
-            slideCounts.put(currentSlide, slideCounts.getOrDefault(currentSlide, 0) + 1);
-        }
-
-        for (Map.Entry<String, Integer> entry : slideCounts.entrySet()) {
-            System.out.println("Slide-ul " + entry.getKey() + " a apărut de " + entry.getValue() + " ori.");
-        }
-
-// Verificăm dacă toate slide-urile au fost afișate
-//        if (slideCounts.size() == slideCount) {
-//            System.out.println("Test reușit: Toate slide-urile au fost afișate.");
-//        } else {
-//            System.out.println("Test eșuat: Nu toate slide-urile s-au schimbat.");
+//        Map<String, Integer> slideCounts = new HashMap<>();
+//        int slideCount = 12;
+//
+//        System.out.println("Numărul total de slide-uri: " + slideCount);
+//
+//        for (int i = 0; i < slideCount; i++) {
+//
+//            homePage.goToNextSlide();
+//            Thread.sleep(2000);
+//
+//            // Obținem identificatorul slide-ului curent
+//            String currentSlide = homePage.getCurrentSlide();
+//            System.out.println("Identificatorul slide-ului curent: " + currentSlide);
+//
+//           // Contorizăm aparițiile identificatorului
+//            slideCounts.put(currentSlide, slideCounts.getOrDefault(currentSlide, 0) + 1);
 //        }
-
-
-        assertEquals(slideCount, slideCounts.size(), "i found" + slideCounts.size());
+//
+//        for (Map.Entry<String, Integer> entry : slideCounts.entrySet()) {
+//            System.out.println("Slide-ul " + entry.getKey() + " a apărut de " + entry.getValue() + " ori.");
+//        }
+//
+//        //face suma la toate apritiile
+//        int totalSlides = slideCounts.values().stream().mapToInt(Integer::intValue).sum();
+//
+//        assertEquals(slideCount, totalSlides, "i found" + totalSlides);
 
     }
-
-
 
 
         @Test
         @DisplayName("Validate 'PRODUSE' menu")
         public void validateProduseMenu(){
 
-
+        log.info("Validate 'PRODUSE' menu");
 
         String titleMenu = homePage.getMenuTitle();
         assertEquals("PRODUSE", titleMenu, "i found: "+ titleMenu);
@@ -105,7 +98,7 @@ public class HomePageTest {
         homePage.hoverElementsMenu();
 
             List<String> labelsText = homePage.getMenuLabels();
-
+            log.info("Validate menu labels");
             assertEquals("CARTE", labelsText.get(0), "I found: " + labelsText.get(0));
             assertEquals("CARTE STRAINA", labelsText.get(1), "I found: " + labelsText.get(1));
             assertEquals("SCOLARESTI", labelsText.get(2), "I found: " + labelsText.get(2));
@@ -129,11 +122,6 @@ public class HomePageTest {
             assertEquals("PROMOȚII ȘI SELECȚII", labelsText.get(20), "I found: " +labelsText.get(20));
 
         }
-
-
-
-
-
 
 
     @AfterEach

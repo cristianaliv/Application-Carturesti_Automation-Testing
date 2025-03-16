@@ -19,7 +19,6 @@ public class SearchPage {
 
     private final static By ACCEPT_COOKIES_BUTTON = By.xpath("//a[@aria-label = 'allow cookies']");
     private final static By SEARCH_BAR = By.xpath("//input[@id = 'search-input']");
-    //private final static By SEARCH_BUTTON = By.xpath("//div[@class = 'search-container']//i[@class = 'material-icons']");
     private final static By SEARCH_BUTTON = By.xpath("/html/body/div[4]/div[1]/div/div[1]/div[2]/i");
     private final static By SEARCH_RESULTS = By.xpath("//h5[@class='md-title ng-binding']");
 
@@ -33,18 +32,27 @@ public class SearchPage {
     }
 
     public void acceptCookies(){
-        log.info("Accept cookies");
+        log.info("Click 'Accept cookies' button");
         actions.waitElementToBeClickable(ACCEPT_COOKIES_BUTTON,10);
         actions.clickElement(ACCEPT_COOKIES_BUTTON);
     }
 
-    public void searchProduct(String searchElement){
+    public void searchProductUsingSearchButton(String searchElement){
         log.info("Search for element: {}", searchElement);
         actions.waitElementToBeVisible(SEARCH_BAR,5);
         actions.clickElement(SEARCH_BAR);
         actions.sendKeys(SEARCH_BAR, searchElement);
-//        actions.clickElement(SEARCH_BUTTON);
-        actions.sendEnter(SEARCH_BAR);
+        log.info("Click search button");
+        actions.clickElement(SEARCH_BUTTON);
+    }
+
+    public void searchProductUsingEnterKey(String searchElement){
+        log.info("Search for element: {}", searchElement);
+        actions.waitElementToBeVisible(SEARCH_BAR,5);
+        actions.clickElement(SEARCH_BAR);
+        actions.sendKeys(SEARCH_BAR, searchElement);
+        log.info("Press the 'Enter' key");
+      actions.sendEnter(SEARCH_BAR);
     }
 
 
