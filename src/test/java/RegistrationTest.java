@@ -28,19 +28,34 @@ public class RegistrationTest {
     @Test
     @DisplayName("Validate create account fields test ")
     public void validateCreateAccountFields(){
-
+        log.info("Validate create account fields test ");
         registrationPage.clickLoginButton();
         registrationPage.clickUtilizatorNouButton();
         List<String> labelsText = registrationPage.getAccountLabels();
+        System.out.println("Account fields are: " + labelsText);
 
-
-
-//        assertEquals("LOGIN / ÎNREGISTRARE", labelsText.get(0).replaceAll("\\s+", " ").trim(), "I found: " + labelsText.get(0) );
         assertTrue(labelsText.get(0).contains("LOGIN / ÎNREGISTRARE"), "I found: " + labelsText.get(0));
         assertEquals("UTILIZATOR NOU", labelsText.get(1), "I found: " + labelsText.get(1));
         assertEquals("Email", labelsText.get(2), "I found: " + labelsText.get(2));
         assertEquals("Parolă", labelsText.get(3), "I found: " + labelsText.get(3));
         assertEquals("SIGNUP", labelsText.get(4), "I found: " +labelsText.get(4));
+    }
+
+
+
+    @Test
+    @DisplayName("Verify if registration fails when using an email already registered in the system ")
+    public void verifyRegistrationWithAnEmailRegistered(){
+          log.info("Verify if registration fails when using an email already registered in the system ");
+        registrationPage.clickLoginButton();
+        registrationPage.clickUtilizatorNouButton();
+          registrationPage.registrationWithRegisteredEmail();
+        registrationPage.completeCaptcha();
+        registrationPage.clickSignUp();
+        String errorMessage = registrationPage.getErrorMessage();
+        System.out.println("Error message is: " + errorMessage);
+        assertEquals("Exista deja un cont creat cu aceasta adresa de email.", errorMessage, "I found: " + errorMessage);
+
     }
 
     @AfterEach

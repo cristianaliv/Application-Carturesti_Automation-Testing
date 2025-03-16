@@ -79,4 +79,19 @@ public class SeleniumActions {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
+
+    public void switchToIframe(By iframeLocator) {
+        WebDriverWait wait = new WebDriverWait(browserManager.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframeLocator));
+    }
+
+    public void switchToDefaultContent() {
+        browserManager.getDriver().switchTo().defaultContent();
+    }
+
+    public void completeCaptcha(By iframeLocator, By captchaCheckbox) {
+        switchToIframe(iframeLocator);
+        clickElement(captchaCheckbox);
+        switchToDefaultContent();
+    }
 }
