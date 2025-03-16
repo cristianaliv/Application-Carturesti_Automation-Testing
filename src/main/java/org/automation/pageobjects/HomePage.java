@@ -58,6 +58,7 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
     }
 
     public void acceptCookies(){
+        log.info("Click 'Accept cookies' button");
         actions.waitElementToBeClickable(ACCEPT_COOKIES_BUTTON,10);
         actions.clickElement(ACCEPT_COOKIES_BUTTON);
     }
@@ -90,20 +91,15 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
     }
 
 
-    public String getCurrentSlide(){
-        log.info("Get current slide.");
-        return actions.getAttribute(CURRENT_SLIDE, "data-is-promotion");
-
-    }
-
-    public void goToNextSlide(){
-        actions.clickElement(RIGHT_ARROW);
-    }
-
-
-    public void goToPrevSlide(){
-        actions.clickElement(LEFT_ARROW);
-    }
+//    public String getCurrentSlide(){
+//        log.info("Get current slide.");
+//        return actions.getAttribute(CURRENT_SLIDE, "data-identifier");
+//
+//    }
+//
+//    public void goToNextSlide(){
+//        actions.clickElement(RIGHT_ARROW);
+//    }
 
     public String getMenuTitle() {
         log.info("Get menu title");
@@ -111,15 +107,14 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
 
     }
 
-
     public void clickProduseButton(){
+        log.info("Click 'PRODUSE' menu");
         actions.clickElement(PRODUSE_BUTTON);
         actions.waitElementToBeVisible(MENU_PRODUSE,10);
     }
 
-
-
     public void hoverElementsMenu(){
+        log.info("Hovering over menu elements");
         actions.hoverElement(CARTE_BUTTON, manager.getDriver() );
         actions.waitElementToBeVisible(HOVER_RESULTS,5);
         actions.hoverElement(CARTE_STRAINA_BUTTON, manager.getDriver() );
@@ -163,16 +158,11 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
         actions.hoverElement(PROMOTII_SI_SELECTII_BUTTON, manager.getDriver() );
         actions.waitElementToBeVisible(HOVER_RESULTS,5);
 
-
-
-
-
-
     }
 
 
     public List<String> getMenuLabels() {
-        log.info("Get account labels");
+        log.info("Get 'PRODUSE' menu  labels");
 
         String carteText = actions.getElementText(CARTE_BUTTON);
         String carteStrainaText = actions.getElementText(CARTE_STRAINA_BUTTON);
@@ -197,18 +187,10 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
         String promotiiText = actions.getElementText(PROMOTII_SI_SELECTII_BUTTON);
 
 
-
         return List.of(carteText, carteStrainaText, scolarestiText,rafturiAleseText, mangaText, revisteText, muzicaText, homeDecoText,
                 filmText, gourmetVinText,rodText, papetarieText,ceaiAccesoriiText, haineAccesoriiText, boardGamesText, jocuriJucariiText,
                 gadgeturiAccesoriiText, playgroundText, cosmeticeText, disneyText, promotiiText);
     }
-
-
-
-
-
-
-
 
 
 

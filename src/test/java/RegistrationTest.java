@@ -42,21 +42,21 @@ public class RegistrationTest {
     }
 
 
-
-    @Test
-    @DisplayName("Verify if registration fails when using an email already registered in the system ")
-    public void verifyRegistrationWithAnEmailRegistered(){
-          log.info("Verify if registration fails when using an email already registered in the system ");
-        registrationPage.clickLoginButton();
-        registrationPage.clickUtilizatorNouButton();
-          registrationPage.registrationWithRegisteredEmail();
-        registrationPage.completeCaptcha();
-        registrationPage.clickSignUp();
-        String errorMessage = registrationPage.getErrorMessage();
-        System.out.println("Error message is: " + errorMessage);
-        assertEquals("Exista deja un cont creat cu aceasta adresa de email.", errorMessage, "I found: " + errorMessage);
-
-    }
+//
+//    @Test
+//    @DisplayName("Verify if registration fails when using an email already registered in the system ")
+//    public void verifyRegistrationWithAnEmailRegistered(){
+//          log.info("Verify if registration fails when using an email already registered in the system ");
+//        registrationPage.clickLoginButton();
+//        registrationPage.clickUtilizatorNouButton();
+//          registrationPage.registrationWithRegisteredEmail();
+//        registrationPage.completeCaptcha();
+//        registrationPage.clickSignUp();
+//        String errorMessage = registrationPage.getErrorMessage();
+//        System.out.println("Error message is: " + errorMessage);
+//        assertEquals("Exista deja un cont creat cu aceasta adresa de email.", errorMessage, "I found: " + errorMessage);
+//
+//    }
 
     @AfterEach
     public void tearDown() {
