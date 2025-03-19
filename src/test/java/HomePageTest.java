@@ -55,34 +55,6 @@ public class HomePageTest {
         assertTrue(isBannerDisplayed, "Banner is not displayed");
         assertTrue(isBannerEnabled, "Banner is not enabled");
 
-
-//        Map<String, Integer> slideCounts = new HashMap<>();
-//        int slideCount = 12;
-//
-//        System.out.println("Numărul total de slide-uri: " + slideCount);
-//
-//        for (int i = 0; i < slideCount; i++) {
-//
-//            homePage.goToNextSlide();
-//            Thread.sleep(2000);
-//
-//            // Obținem identificatorul slide-ului curent
-//            String currentSlide = homePage.getCurrentSlide();
-//            System.out.println("Identificatorul slide-ului curent: " + currentSlide);
-//
-//           // Contorizăm aparițiile identificatorului
-//            slideCounts.put(currentSlide, slideCounts.getOrDefault(currentSlide, 0) + 1);
-//        }
-//
-//        for (Map.Entry<String, Integer> entry : slideCounts.entrySet()) {
-//            System.out.println("Slide-ul " + entry.getKey() + " a apărut de " + entry.getValue() + " ori.");
-//        }
-//
-//        //face suma la toate apritiile
-//        int totalSlides = slideCounts.values().stream().mapToInt(Integer::intValue).sum();
-//
-//        assertEquals(slideCount, totalSlides, "i found" + totalSlides);
-
     }
 
 

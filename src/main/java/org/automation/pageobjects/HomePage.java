@@ -15,14 +15,9 @@ public class HomePage {
     SeleniumActions actions = new SeleniumActions(manager);
 
     private final static By ACCEPT_COOKIES_BUTTON = By.xpath("//a[@aria-label = 'allow cookies']");
-
     private final static By LOGO_BUTTON = By.xpath("//a[@class='logo-cartu']");
     private final static By HOME_PAGE_BANNER = By.xpath("//div[@class= 'cartuSlider clean-a ng-scope']");
-    private final static By CURRENT_SLIDE = By.xpath("//a[@class='ct-link ng-scope']");
-    private final static By RIGHT_ARROW = By.xpath("(//div[@class = 'rightArrow'])[1]");
-    private final static By LEFT_ARROW = By.xpath("(//div[@class = 'leftArrow'])[1]");
-//    private final static By PRODUSE_BUTTON = By.xpath("//button[@id= 'buton-produse']");
-private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
+    private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
     private final static By MENU_PRODUSE = By.xpath("//md-list[@role='list']");
     private final static By CARTE_BUTTON = By.xpath("//a[@data-ng-href='/raft/carte-109']");
     private final static By CARTE_STRAINA_BUTTON = By.xpath("//a[@data-ng-href='/raft/carte-straina-1937']");
@@ -46,8 +41,6 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
     private final static By DISNEY_BUTTON = By.xpath("//a[@data-ng-href='/raft/disney-1042']");
     private final static By PROMOTII_SI_SELECTII_BUTTON = By.xpath("//a[@data-ng-href='/offer']");
     private final static By HOVER_RESULTS = By.xpath("//canvas[@id='menuCanvas']");
-
-
 
 
     public void openHomePage() {
@@ -90,16 +83,6 @@ private final static By PRODUSE_BUTTON = By.xpath("//span[@class='coco']");
         return actions.isElementEnabled(HOME_PAGE_BANNER);
     }
 
-
-//    public String getCurrentSlide(){
-//        log.info("Get current slide.");
-//        return actions.getAttribute(CURRENT_SLIDE, "data-identifier");
-//
-//    }
-//
-//    public void goToNextSlide(){
-//        actions.clickElement(RIGHT_ARROW);
-//    }
 
     public String getMenuTitle() {
         log.info("Get menu title");

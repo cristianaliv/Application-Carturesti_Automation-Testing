@@ -1,3 +1,5 @@
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.automation.framework.BrowserManager;
@@ -28,6 +30,7 @@ public class LoginTest {
 
     @Order(value = 1)
    @Test
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Verify if user can log in successfully with a valid account")
     public void loginTest(){
         log.info("Verify if user can log in successfully with a valid account");
@@ -41,6 +44,7 @@ public class LoginTest {
 
     @Order(value = 2)
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Verify if user can logout successfully from the application")
     public void logoutTest(){
         log.info("Verify if user can logout successfully from the application");
@@ -56,6 +60,7 @@ public class LoginTest {
 
     @Order(value = 3)
     @Test
+    @Severity(SeverityLevel.NORMAL)
     @DisplayName("Verify if user login fails with invalid account information")
     public void loginTestWithInvalidEmail() {
         log.info("Verify if user login fails with invalid account information");

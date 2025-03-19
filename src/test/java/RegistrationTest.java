@@ -1,3 +1,5 @@
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.automation.framework.BrowserManager;
@@ -26,9 +28,10 @@ public class RegistrationTest {
 
 
     @Test
-    @DisplayName("Validate create account fields test ")
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Validate create account fields")
     public void validateCreateAccountFields(){
-        log.info("Validate create account fields test ");
+        log.info("Validate create account fields");
         registrationPage.clickLoginButton();
         registrationPage.clickUtilizatorNouButton();
         List<String> labelsText = registrationPage.getAccountLabels();

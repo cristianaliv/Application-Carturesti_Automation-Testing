@@ -15,9 +15,6 @@ public enum LoginDetails {
         this.password = password;
     }
 
-    LoginDetails(String email) {
-        this.email = email;
-    }
 
     public String getEmail() {
         return email;
